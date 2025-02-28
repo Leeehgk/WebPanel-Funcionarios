@@ -1,0 +1,449 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    BODY {
+        FONT-FAMILY: Arial, sans-serif;
+        PADDING-BOTTOM: 20px;
+        PADDING-TOP: 20px;
+        PADDING-LEFT: 20px;
+        MARGIN: 0px;
+        PADDING-RIGHT: 20px;
+        BACKGROUND-COLOR: #f4f4f4
+    }
+
+    .Container {
+        MAX-WIDTH: 900px;
+        BACKGROUND: #fff;
+        PADDING-BOTTOM: 20px;
+        PADDING-TOP: 20px;
+        PADDING-LEFT: 20px;
+        MARGIN: auto;
+        PADDING-RIGHT: 20px;
+        border-radius: 10px;
+    }
+
+    .total-container {
+        DISPLAY: flex;
+        justify-content: center;
+        gap: 20px
+    }
+
+    H1 {
+        FONT-SIZE: 22px;
+        MARGIN-BOTTOM: 20px;
+        COLOR: #333;
+        TEXT-ALIGN: center
+    }
+
+    .Section {
+        OVERFLOW: hidden;
+        MARGIN-BOTTOM: 15px;
+        BACKGROUND: #fff;
+        border-radius: 8px
+    }
+
+    .Section H2 {
+        FONT-SIZE: 18px;
+        BACKGROUND: #00b3ff;
+        COLOR: #fff;
+        PADDING-BOTTOM: 12px;
+        PADDING-TOP: 12px;
+        PADDING-LEFT: 12px;
+        MARGIN: 0px;
+        DISPLAY: flex;
+        PADDING-RIGHT: 12px;
+        border-radius: 8px;
+        justify-content: space-between;
+        align-items: center
+    }
+
+    .total-box {
+        FONT-SIZE: 18px;
+        BACKGROUND: #fff;
+        PADDING-BOTTOM: 12px;
+        TEXT-ALIGN: center;
+        PADDING-TOP: 12px;
+        PADDING-LEFT: 20px;
+        MARGIN: 5px;
+        DISPLAY: inline-block;
+        PADDING-RIGHT: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
+    }
+
+    .gray-box {
+        BACKGROUND-COLOR: #595e66f1;
+        border-radius: 8px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5)
+    }
+
+    .bold {
+        FONT-WEIGHT: bold
+    }
+
+    .red {
+        FONT-WEIGHT: bold;
+        COLOR: red
+    }
+
+    .chart-container {
+        width: 150px;
+        /* Ajusta a largura para o gráfico de barras */
+        height: 150px;
+    }
+
+    .print-button {
+        width: 80px;
+        height: 20px;
+        background-color: #cddff1;
+        border-radius: 20%;
+        border-radius: 20px;
+        margin-left: 20px;
+        font-size: 12px;
+
+
+    }
+</style>
+<div class="Container" style="HEIGHT: 1000px; WIDTH: 1150px" classref="d52f9833-90c9-4096-8e42-27485741f78a-827">
+    <h1>Resumo Cadastro de Funcionarios<button onclick="window.print(); window.close()"
+            class="print-button">Imprimir</button>
+    </h1>
+    <div class="Container">
+        <div class="Section">
+            <h2>Total Geral
+            </h2>
+        </div>
+    </div>
+    <div class="Section">
+        <div class="total-container">
+            <div class="chart-container">
+                <CANVAS id="barChart">
+                </CANVAS>
+            </div>
+            <div id="Section3" class="total-box gray-box">
+                <div class="content">
+                    <div class="text">
+                        <div id="Section1" class="bold">Masculino
+                        </div>
+                        <div id="Section2" class="red">&nbsp;
+                            <input class="Attribute" contenteditable="false"
+                                style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
+                                size="6" value=&amp;Masc gxControl="Attribute"
+                                gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:7;GxObjClass=13;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
+                        </div>
+                    </div><img id="Image1" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0"
+                        src="C:\Users\Leandro Goncalves\AppData\Local\Temp\Velhinho.velhote.png"
+                        classref="d52f9833-90c9-4096-8e42-27485741f78a-983"
+                        imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-471" />
+                </div>
+            </div>
+            <div id="Section6" class="total-box gray-box">
+                <div class="content">
+                    <div class="text">
+                        <div id="Section4" class="bold">Feminino
+                        </div>
+                        <div id="Section5" class="red">&nbsp;
+                            <input class="Attribute" contenteditable="false"
+                                style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
+                                size="6" value=&amp;Fem gxControl="Attribute"
+                                gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:8;GxObjClass=13;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
+                        </div>
+                    </div><img id="Image2" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0"
+                        src="C:\Users\Leandro Goncalves\AppData\Local\Temp\velhinha.velhinha.png"
+                        classref="d52f9833-90c9-4096-8e42-27485741f78a-983"
+                        imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-472" />
+                </div>
+            </div>
+            <div id="Section8" class="total-box gray-box">
+                <div class="bold">Total
+                </div>
+                <div id="Section7" class="red">&nbsp;
+                    <input class="Attribute" contenteditable="false"
+                        style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
+                        size="6" value=&amp;Total gxControl="Attribute"
+                        gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:9;GxObjClass=13;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
+                </div><img id="image3" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0"
+                    src="C:\Users\Leandro Goncalves\AppData\Local\Temp\igual.igual.png"
+                    classref="d52f9833-90c9-4096-8e42-27485741f78a-983"
+                    imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-473" />
+            </div>
+        </div>
+        <h2>Cargos
+        </h2>
+        <div class="Section">
+            <div class="total-container">
+                <div id="Section11" class="total-box gray-box">
+                    <div class="content">
+                        <div class="text">
+                            <div id="Section9" class="bold">Sa&uacute;de
+                            </div>
+                            <div id="Section10" class="red">&nbsp;
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
+                                    size="6" value=&amp;TotalSet1 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:12;GxObjClass=13;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
+                            </div>
+                        </div><img id="Image4" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0"
+                            src="C:\Users\Leandro Goncalves\AppData\Local\Temp\Velhinho.velhote.png"
+                            classref="d52f9833-90c9-4096-8e42-27485741f78a-983"
+                            imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-471" />
+                    </div>
+                </div>
+                <div id="Section14" class="total-box gray-box">
+                    <div class="content">
+                        <div class="text">
+                            <div id="Section12" class="bold">Nutri&ccedil;&atilde;o
+                            </div>
+                            <div id="Section13" class="red">&nbsp;
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
+                                    size="6" value=&amp;TotalSet2 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:15;GxObjClass=13;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
+                            </div>
+                        </div><img id="Image5" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0"
+                            src="C:\Users\Leandro Goncalves\AppData\Local\Temp\velhinha.velhinha.png"
+                            classref="d52f9833-90c9-4096-8e42-27485741f78a-983"
+                            imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-472" />
+                    </div>
+                </div>
+                <div id="Section17" class="total-box gray-box">
+                    <div class="content">
+                        <div class="text">
+                            <div id="Section15" class="bold">Administra&ccedil;&atilde;o
+                            </div>
+                            <div id="Section16" class="red">&nbsp;
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
+                                    size="6" value=&amp;TotalSet3 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:18;GxObjClass=13;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
+                            </div>
+                        </div><img id="Image6" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0"
+                            src="C:\Users\Leandro Goncalves\AppData\Local\Temp\velhinha.velhinha.png"
+                            classref="d52f9833-90c9-4096-8e42-27485741f78a-983"
+                            imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-472" />
+                    </div>
+                </div>
+            </div>
+            <div class="total-container">
+                <div id="Section20" class="total-box gray-box">
+                    <div class="content">
+                        <div class="text">
+                            <div id="Section18" class="bold">Apoio/Manuten&ccedil;&atilde;o
+                            </div>
+                            <div id="Section19" class="red">&nbsp;
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
+                                    size="6" value=&amp;TotalSet4 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:21;GxObjClass=13;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
+                            </div>
+                        </div><img id="Image7" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0"
+                            src="C:\Users\Leandro Goncalves\AppData\Local\Temp\Velhinho.velhote.png"
+                            classref="d52f9833-90c9-4096-8e42-27485741f78a-983"
+                            imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-471" />
+                    </div>
+                </div>
+                <div id="Section23" class="total-box gray-box">
+                    <div class="content">
+                        <div class="text">
+                            <div id="Section21" class="bold">Zeladoria
+                            </div>
+                            <div id="Section22" class="red">&nbsp;
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
+                                    size="6" value=&amp;TotalSet5 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:24;GxObjClass=13;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
+                            </div>
+                        </div><img id="Image8" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0"
+                            src="C:\Users\Leandro Goncalves\AppData\Local\Temp\velhinha.velhinha.png"
+                            classref="d52f9833-90c9-4096-8e42-27485741f78a-983"
+                            imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-472" />
+                    </div>
+                </div>
+                <div id="Section26" class="total-box gray-box">
+                    <div class="content">
+                        <div class="text">
+                            <div id="Section24" class="bold">Promo&ccedil;&atilde;o
+                            </div>
+                            <div id="Section25" class="red">&nbsp;
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
+                                    size="6" value=&amp;TotalSet6 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:26;GxObjClass=13;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
+                            </div>
+                        </div><img id="Image9" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0"
+                            src="C:\Users\Leandro Goncalves\AppData\Local\Temp\velhinha.velhinha.png"
+                            classref="d52f9833-90c9-4096-8e42-27485741f78a-983"
+                            imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-472" />
+                    </div>
+                </div>
+            </div>
+            <h2>Total de Funcionarios Admitidos Por Cargo
+            </h2>
+            <div id="acolhidos" class="Container">
+                <table class="table" style="WIDTH: 600px" cellpadding="1"
+                    classref="d52f9833-90c9-4096-8e42-27485741f78a-619">
+                    <tbody>
+                        <tr>
+                            <td class="bold">Masculino</td>
+                            <td></td>
+                            <td class="bold">Feminino</td>
+                        </tr>
+                        <tr>
+                            <td style="HEIGHT: 38px">Saude:</td>
+                            <td class="blue">
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;MascSet1 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:10;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                            <td>Saude:</td>
+                            <td class="blue">
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;FemSet1 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:11;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="HEIGHT: 38px">Nutri&ccedil;&atilde;o:</td>
+                            <td class="blue">
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;MascSet2 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:13;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                            <td>Nutri&ccedil;&atilde;o:</td>
+                            <td class="blue">
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;FemSet2 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:14;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="HEIGHT: 25px">Administra&ccedil;&atilde;o:</td>
+                            <td class="blue">
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;MascSet3 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:16;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                            <td>Administra&ccedil;&atilde;o:</td>
+                            <td class="blue">
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;FemSet3 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:17;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="HEIGHT: 25px">Apoio/Manuten&ccedil;&atilde;o:</td>
+                            <td class="blue">
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;MascSet4 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:19;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                            <td>Apoio/Manuten&ccedil;&atilde;o:</td>
+                            <td class="blue">
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;FemSet4 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:20;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="HEIGHT: 25px">Zeladoria:</td>
+                            <td>
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;MascSet5 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:22;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                            <td>Zeladoria</td>
+                            <td>
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;FemSet5 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:23;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="HEIGHT: 25px">Promo&ccedil;&atilde;o:</td>
+                            <td>
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;MascSet6 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:27;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                            <td>Promo&ccedil;&atilde;o:</td>
+                            <td>
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;FemSet6 gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:25;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Total:</td>
+                            <td class="blue">
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;Masc gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:7;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                            <td class="bold">Total:</td>
+                            <td class="blue">
+                                <input class="Attribute" contenteditable="false"
+                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
+                                    size="6" value=&amp;Fem gxControl="Attribute"
+                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:8;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+
+        let fem = document.getElementById('span_vFEM').innerText;
+        let masc = document.getElementById('span_vMASC').innerText;
+
+
+        console.log("Masculino:", masc);
+        console.log("Feminino:", fem);
+
+
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Masculino', 'Feminino'],
+                datasets: [{
+                    label: 'Total de Idosos',
+                    data: [parseInt(masc), parseInt(fem)], // Dados do gráfico
+                    backgroundColor: ['#007bff', '#ff7f7f'],
+                    borderColor: ['#004085', '#d9534f'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw; // Tooltip do gráfico
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
