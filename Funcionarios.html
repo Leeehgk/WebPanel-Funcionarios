@@ -18,6 +18,7 @@
         PADDING-LEFT: 20px;
         MARGIN: auto;
         PADDING-RIGHT: 20px;
+        /*border: #333  solid 2px;*/
         border-radius: 10px;
     }
 
@@ -87,7 +88,7 @@
     }
 
     .chart-container {
-        width: 150px;
+        width: 300px;
         /* Ajusta a largura para o gráfico de barras */
         height: 150px;
     }
@@ -108,12 +109,12 @@
     <h1>Resumo Cadastro de Funcionarios<button onclick="window.print(); window.close()"
             class="print-button">Imprimir</button>
     </h1>
-    <div class="Container">
-        <div class="Section">
-            <h2>Total Geral
-            </h2>
-        </div>
+
+    <div class="Section">
+        <h2>Total Geral
+        </h2>
     </div>
+
     <div class="Section">
         <div class="total-container">
             <div class="chart-container">
@@ -409,43 +410,72 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        window.onload = function () {
+            // Pegando os valores dos spans
+            let fem = document.getElementById('span_vFEM')?.innerText.trim() || "0";
+            let masc = document.getElementById('span_vMASC')?.innerText.trim() || "0";
+            let saude = document.getElementById('span_vTOTALSET1')?.innerText.trim() || "0";
+            let nutricao = document.getElementById('span_vTOTALSET2')?.innerText.trim() || "0";
+            let adm = document.getElementById('span_vTOTALSET3')?.innerText.trim() || "0";
+            let apoio = document.getElementById('span_vTOTALSET4')?.innerText.trim() || "0";
+            let zeladoria = document.getElementById('span_vTOTALSET5')?.innerText.trim() || "0";
+            let promocao = document.getElementById('span_vTOTALSET6')?.innerText.trim() || "0";
 
-        let fem = document.getElementById('span_vFEM').innerText;
-        let masc = document.getElementById('span_vMASC').innerText;
+            // Convertendo os valores para números
+            fem = parseInt(fem) || 0;
+            masc = parseInt(masc) || 0;
+            saude = parseInt(saude) || 0;
+            nutricao = parseInt(nutricao) || 0;
+            adm = parseInt(adm) || 0;
+            apoio = parseInt(apoio) || 0;
+            zeladoria = parseInt(zeladoria) || 0;
+            promocao = parseInt(promocao) || 0;
 
+            // Debug: Verificando os valores antes de criar o gráfico
+            //console.log("Masculino:", masc);
+            //console.log("Feminino:", fem);
+            //console.log("Total Set 1:", saude);
+            //console.log("Total Set 2:", nutricao);
+            //console.log("Total Set 3:", adm);
+            //console.log("Total Set 4:", apoio);
+            //console.log("Total Set 5:", zeladoria);
+            //console.log("Total Set 6:", promocao);
 
-        console.log("Masculino:", masc);
-        console.log("Feminino:", fem);
+            // Verifica se o canvas do gráfico existe
+            let canvas = document.getElementById('barChart');
+            if (!canvas) {
+                console.error("Erro: Canvas 'barChart' não encontrado!");
+                return;
+            }
 
-
-        var ctx = document.getElementById('barChart').getContext('2d');
-        var barChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Masculino', 'Feminino'],
-                datasets: [{
-                    label: 'Total de Idosos',
-                    data: [parseInt(masc), parseInt(fem)], // Dados do gráfico
-                    backgroundColor: ['#007bff', '#ff7f7f'],
-                    borderColor: ['#004085', '#d9534f'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top'
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw; // Tooltip do gráfico
+            var ctx = canvas.getContext('2d');
+            var barChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Saúde', 'Nutrição', 'Administração', 'Apoio', 'Zeladoria', 'Promoção'],
+                    datasets: [{
+                        label: 'Total de Funcionarios',
+                        data: [saude, nutricao, adm, apoio, zeladoria, promocao], // Dados do gráfico
+                        backgroundColor: ['#007bff', '#ff7f7f', '#28a745', '#ffc107', '#17a2b8', '#6610f2'],
+                        borderColor: ['#004085', '#d9534f', '#155724', '#856404', '#0c5460', '#4e0754'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (tooltipItem) {
+                                    return tooltipItem.label + ': ' + tooltipItem.raw; // Tooltip do gráfico
+                                }
                             }
                         }
                     }
                 }
-            }
-        });
-
+            });
+        };
     </script>
