@@ -93,18 +93,26 @@
         WIDTH: 300px
     }
 
+    /* CSS para esconder o botão de impressão durante a impressão */
+    @media print {
+        .print-button {
+            display: none !important;
+            /* Usando !important para garantir que a regra seja aplicada */
+        }
+    }
+
+    /* Estilo do botão de impressão */
     .print-button {
-        FONT-SIZE: 12px;
-        HEIGHT: 20px;
-        WIDTH: 80px;
-        MARGIN-LEFT: 20px;
-        BACKGROUND-COLOR: #cddff1;
-        border-radius: 20px
+        font-size: 12px;
+        height: 20px;
+        width: 80px;
+        margin-left: 20px;
+        background-color: #cddff1;
+        border-radius: 20px;
     }
 </style>
 <div class="Container" style="HEIGHT: 1000px; WIDTH: 1150px" classref="d52f9833-90c9-4096-8e42-27485741f78a-827">
-    <h1>Resumo Cadastro de Funcionarios<button onclick="window.print(); window.close()"
-            class="print-button">Imprimir</button>
+    <h1>Resumo Cadastro de Funcionarios<button onclick="window.print()" class="print-button">Imprimir</button>
     </h1>
     <div class="Section">
         <h2>Total Geral
