@@ -502,6 +502,14 @@
                 let zeladoria = document.getElementById('span_vTOTALSET5')?.innerText.trim() || "0";
                 let promocao = document.getElementById('span_vTOTALSET6')?.innerText.trim() || "0";
 
+                let saudetext = document.getElementById('span_vSETNOM')?.innerText.trim()
+                let nutricaotext = document.getElementById('span_vSETNOM1')?.innerText.trim()
+                let admtext = document.getElementById('span_vSETNOM2')?.innerText.trim()
+                let apoiotext = document.getElementById('span_vSETNOM3')?.innerText.trim()
+                let zeladoriatext = document.getElementById('span_vSETNOM4')?.innerText.trim()
+                let promocaotext = document.getElementById('span_vSETNOM5')?.innerText.trim()
+
+
                 fem = parseInt(fem) || 0;
                 masc = parseInt(masc) || 0;
                 saude = parseInt(saude) || 0;
@@ -512,12 +520,12 @@
                 promocao = parseInt(promocao) || 0;
 
                 let setores = [
-                    { label: 'Saúde', value: saude, color: '#007bff', borderColor: '#004085' },
-                    { label: 'Nutrição', value: nutricao, color: '#ff7f7f', borderColor: '#d9534f' },
-                    { label: 'Administração', value: adm, color: '#28a745', borderColor: '#155724' },
-                    { label: 'Apoio', value: apoio, color: '#ffc107', borderColor: '#856404' },
-                    { label: 'Zeladoria', value: zeladoria, color: '#17a2b8', borderColor: '#0c5460' },
-                    { label: 'Promoção', value: promocao, color: '#6610f2', borderColor: '#4e0754' }
+                    { label: saudetext, value: saude, color: '#007bff', borderColor: '#004085' },
+                    { label: nutricaotext, value: nutricao, color: '#ff7f7f', borderColor: '#d9534f' },
+                    { label: admtext, value: adm, color: '#28a745', borderColor: '#155724' },
+                    { label: apoiotext, value: apoio, color: '#ffc107', borderColor: '#856404' },
+                    { label: zeladoriatext, value: zeladoria, color: '#17a2b8', borderColor: '#0c5460' },
+                    { label: promocaotext, value: promocao, color: '#6610f2', borderColor: '#4e0754' }
                 ];
 
                 // Ordena do maior para o menor
