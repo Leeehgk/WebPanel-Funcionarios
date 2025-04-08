@@ -1,508 +1,273 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-    BODY {
-        FONT-FAMILY: Arial, sans-serif;
-        PADDING-BOTTOM: 20px;
-        PADDING-TOP: 20px;
-        PADDING-LEFT: 20px;
-        MARGIN: 0px;
-        PADDING-RIGHT: 20px;
-        BACKGROUND-COLOR: #f4f4f4
-    }
 
-    .Container {
-        MAX-WIDTH: 900px;
-        BACKGROUND: #fff;
-        PADDING-BOTTOM: 20px;
-        PADDING-TOP: 20px;
-        PADDING-LEFT: 20px;
-        MARGIN: auto;
-        PADDING-RIGHT: 20px;
-        border-radius: 10px
-    }
+BODY {
+	FONT-FAMILY: Arial, sans-serif; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 20px; MARGIN: 0px; PADDING-RIGHT: 20px; BACKGROUND-COLOR: #f4f4f4
+}
+.Container {
+	MAX-WIDTH: 900px; BACKGROUND: #fff; PADDING-BOTTOM: 20px; PADDING-TOP: 20px; PADDING-LEFT: 20px; MARGIN: auto; PADDING-RIGHT: 20px; border-radius: 10px
+}
+.total-container {
+	DISPLAY: flex; justify-content: center; gap: 20px
+}
+H1 {
+	FONT-SIZE: 22px; MARGIN-BOTTOM: 20px; COLOR: #333; TEXT-ALIGN: center
+}
+.Section {
+	OVERFLOW: hidden; MARGIN-BOTTOM: 15px; BACKGROUND: #fff; border-radius: 8px
+}
+.Section H2 {
+	FONT-SIZE: 18px; BACKGROUND: #00b3ff; COLOR: #fff; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 12px; MARGIN: 0px; DISPLAY: flex; PADDING-RIGHT: 12px; border-radius: 8px; justify-content: space-between; align-items: center
+}
+.total-box {
+	FONT-SIZE: 18px; BACKGROUND: #fff; PADDING-BOTTOM: 12px; TEXT-ALIGN: center; PADDING-TOP: 12px; PADDING-LEFT: 20px; MARGIN: 5px; DISPLAY: inline-block; PADDING-RIGHT: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
+}
+.gray-box {
+	BORDER-TOP: #333 2px solid; BORDER-RIGHT: #333 2px solid; BORDER-BOTTOM: #333 2px solid; BORDER-LEFT: #333 2px solid; border-radius: 8px; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5)
+}
+.bold {
+	FONT-WEIGHT: bold
+}
+.red {
+	FONT-WEIGHT: bold; COLOR: red
+}
+.chart-container {
+	HEIGHT: 150px; WIDTH: 300px
+}
 
-    .total-container {
-        DISPLAY: flex;
-        justify-content: center;
-        gap: 20px
+@media Print    
+{
+.print-button {
+	DISPLAY: none !important
+}
     }
+.print-button {
+	FONT-SIZE: 12px; HEIGHT: 20px; WIDTH: 80px; MARGIN-LEFT: 20px; BACKGROUND-COLOR: #cddff1; border-radius: 20px
+}
 
-    H1 {
-        FONT-SIZE: 22px;
-        MARGIN-BOTTOM: 20px;
-        COLOR: #333;
-        TEXT-ALIGN: center
-    }
 
-    .Section {
-        OVERFLOW: hidden;
-        MARGIN-BOTTOM: 15px;
-        BACKGROUND: #fff;
-        border-radius: 8px
-    }
-
-    .Section H2 {
-        FONT-SIZE: 18px;
-        BACKGROUND: #00b3ff;
-        COLOR: #fff;
-        PADDING-BOTTOM: 12px;
-        PADDING-TOP: 12px;
-        PADDING-LEFT: 12px;
-        MARGIN: 0px;
-        DISPLAY: flex;
-        PADDING-RIGHT: 12px;
-        border-radius: 8px;
-        justify-content: space-between;
-        align-items: center
-    }
-
-    .total-box {
-        FONT-SIZE: 18px;
-        BACKGROUND: #fff;
-        PADDING-BOTTOM: 12px;
-        TEXT-ALIGN: center;
-        PADDING-TOP: 12px;
-        PADDING-LEFT: 20px;
-        MARGIN: 5px;
-        DISPLAY: inline-block;
-        PADDING-RIGHT: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
-    }
-
-    .gray-box {
-        BORDER-TOP: #333 2px solid;
-        BORDER-RIGHT: #333 2px solid;
-        BORDER-BOTTOM: #333 2px solid;
-        BORDER-LEFT: #333 2px solid;
-        border-radius: 8px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5)
-    }
-
-    .bold {
-        FONT-WEIGHT: bold
-    }
-
-    .red {
-        FONT-WEIGHT: bold;
-        COLOR: red
-    }
-
-    .chart-container {
-        HEIGHT: 150px;
-        WIDTH: 300px
-    }
-
-    @media Print {
-        .print-button {
-            DISPLAY: none !important
-        }
-    }
-
-    .print-button {
-        FONT-SIZE: 12px;
-        HEIGHT: 20px;
-        WIDTH: 80px;
-        MARGIN-LEFT: 20px;
-        BACKGROUND-COLOR: #cddff1;
-        border-radius: 20px
-    }
 </style>
 <div class="Container" style="HEIGHT: 1000px; WIDTH: 1150px" classref="d52f9833-90c9-4096-8e42-27485741f78a-827">
-    <h1>
-        <input class="Imprimir" contenteditable="false" type="button" value="Imprimir" gxcontrol="Button"
-            gxprop="ControlName=Button1;Event='Imprimir';Class=d52f9833-90c9-4096-8e42-27485741f78a-1705" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        Resumo Cadastro de Funcionarios
-    </h1>
-    <div class="Section">
-        <h2>Total Geral
-        </h2>
+  <h1>
+    <input class="Imprimir" contenteditable="false" type="button" value="Imprimir" gxcontrol="Button" gxprop="ControlName=Button1;Event='Imprimir';Class=d52f9833-90c9-4096-8e42-27485741f78a-1705" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Resumo Cadastro de Funcionarios 
+  </h1>
+  <div class="Section">
+    <h2>Total Geral 
+    </h2>
+  </div>
+  <div class="Section">
+    <div class="total-container">
+      <div class="chart-container">
+        <CANVAS id="barChart">
+        </CANVAS>
+      </div>
+      <div id="Section3" class="total-box gray-box">
+        <div class="content">
+          <div class="text">
+            <div id="Section1" class="bold">Masculino 
+            </div>
+            <div id="Section2" class="red">&nbsp; 
+              <input class="Attribute" contenteditable="false" style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal" size="6" value=&amp;Masc gxControl="Attribute" gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:7;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
+            </div>
+          </div><img id="ImageMasc" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0" src="C:\Users\Leandro Goncalves\AppData\Local\Temp\PersonMenino.Menino.jpg" classref="d52f9833-90c9-4096-8e42-27485741f78a-983" imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-472" /> 
+        </div>
+      </div>
+      <div id="Section6" class="total-box gray-box">
+        <div class="content">
+          <div class="text">
+            <div id="Section4" class="bold">Feminino 
+            </div>
+            <div id="Section5" class="red">&nbsp; 
+              <input class="Attribute" contenteditable="false" style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal" size="6" value=&amp;Fem gxControl="Attribute" gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:8;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
+            </div>
+          </div><img id="ImageFem" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0" src="C:\Users\Leandro Goncalves\AppData\Local\Temp\PersonFeminino.Menina.jpg" classref="d52f9833-90c9-4096-8e42-27485741f78a-983" imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-473" /> 
+        </div>
+      </div>
+      <div id="Section8" class="total-box gray-box">
+        <div class="bold">Total 
+        </div>
+        <div id="Section7" class="red">&nbsp; 
+          <input class="Attribute" contenteditable="false" style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal" size="6" value=&amp;Total gxControl="Attribute" gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:9;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
+        </div><img id="imageTot" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0" src="C:\Users\Leandro Goncalves\AppData\Local\Temp\igual.igual.png" classref="d52f9833-90c9-4096-8e42-27485741f78a-983" imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-471" /> 
+      </div>
     </div>
+    <h2>Cargos 
+    </h2>
     <div class="Section">
-        <div class="total-container">
-            <div class="chart-container">
-                <CANVAS id="barChart">
-                </CANVAS>
+      <div class="total-container">
+        <div id="Section11" class="total-box gray-box">
+          <div class="content">
+            <div class="text">
+              <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Georgia'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="Font=Georgia, 12pt, style\x03DBold;ReadOnly=True;AttID=var:51;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>1</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=True;ControlName=VetSetNom1" />
+              <div id="Section10" class="red">&nbsp; 
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal" size="3" value=&amp;VetTotalSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:65;GxObjClass=13;ReadOnly=True;GxFormat=HTML;ControlName=VetTotalSet1;ForeColor=Blue" />
+              </div>
             </div>
-            <div id="Section3" class="total-box gray-box">
-                <div class="content">
-                    <div class="text">
-                        <div id="Section1" class="bold">Masculino
-                        </div>
-                        <div id="Section2" class="red">&nbsp;
-                            <input class="Attribute" contenteditable="false"
-                                style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
-                                size="6" value=&amp;Masc gxControl="Attribute"
-                                gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:7;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
-                        </div>
-                    </div><img id="ImageMasc" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0"
-                        src="file:///C:/Users/Leandro%20Goncalves/AppData/Local/Temp/PersonMenino.Menino.jpg"
-                        classref="d52f9833-90c9-4096-8e42-27485741f78a-983"
-                        imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-472" />
-                </div>
-            </div>
-            <div id="Section6" class="total-box gray-box">
-                <div class="content">
-                    <div class="text">
-                        <div id="Section4" class="bold">Feminino
-                        </div>
-                        <div id="Section5" class="red">&nbsp;
-                            <input class="Attribute" contenteditable="false"
-                                style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
-                                size="6" value=&amp;Fem gxControl="Attribute"
-                                gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:8;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
-                        </div>
-                    </div><img id="ImageFem" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0"
-                        src="file:///C:/Users/Leandro%20Goncalves/AppData/Local/Temp/PersonFeminino.Menina.jpg"
-                        classref="d52f9833-90c9-4096-8e42-27485741f78a-983"
-                        imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-473" />
-                </div>
-            </div>
-            <div id="Section8" class="total-box gray-box">
-                <div class="bold">Total
-                </div>
-                <div id="Section7" class="red">&nbsp;
-                    <input class="Attribute" contenteditable="false"
-                        style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
-                        size="6" value=&amp;Total gxControl="Attribute"
-                        gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:9;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
-                </div><img id="imageTot" class="Image" style="HEIGHT: 80px; WIDTH: 80px" hspace="0"
-                    src="file:///C:/Users/Leandro%20Goncalves/AppData/Local/Temp/igual.igual.png"
-                    classref="d52f9833-90c9-4096-8e42-27485741f78a-983"
-                    imagereference="9fb193d9-64a4-4d30-b129-ff7c76830f7e-471" />
-            </div>
+            <input class="Image" contenteditable="false" style="HEIGHT: 80px; WIDTH: 80px" value=&amp;VetSetImage gxControl="Attribute" gxProp="GxWidth=80px;AttID=var:52;GxObjClass=13;Class=d52f9833-90c9-4096-8e42-27485741f78a-983;AutoResize=False;ControlName=VetSetImage1;GxHeight=80px" />
+          </div>
         </div>
-        <h2>Cargos
-        </h2>
-        <div class="Section">
-            <div class="total-container">
-                <div id="Section11" class="total-box gray-box">
-                    <div class="content">
-                        <div class="text">
-                            <input class="Attribute" contenteditable="false"
-                                style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Georgia'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                gxProp="Font=Georgia, 12pt, style\x03DBold;ReadOnly=True;AttID=var:51;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>1</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=True;ControlName=VetSetNom1" />
-                            <div id="Section10" class="red">&nbsp;
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
-                                    size="6" value=&amp;TotalSet1 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:12;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
-                            </div>
-                        </div>
-                        <input class="Image" contenteditable="false" style="HEIGHT: 80px; WIDTH: 80px"
-                            value=&amp;VetSetImage gxControl="Attribute"
-                            gxProp="GxWidth=80px;AttID=var:52;GxObjClass=13;Class=d52f9833-90c9-4096-8e42-27485741f78a-983;AutoResize=False;ControlName=VetSetImage1;GxHeight=80px" />
-                    </div>
-                </div>
-                <div id="Section14" class="total-box gray-box">
-                    <div class="content">
-                        <div class="text">
-                            <input class="Attribute" contenteditable="false"
-                                style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Georgia'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                gxProp="Font=Georgia, 12pt, style\x03DBold;ReadOnly=True;AttID=var:51;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>2</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=True;ControlName=VetSetNom2" />
-                            <div id="Section13" class="red">&nbsp;
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
-                                    size="6" value=&amp;TotalSet2 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;ReadOnly=True;AttID=var:15;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>2</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ForeColor=Blue" />
-                            </div>
-                        </div>
-                        <input class="Image" contenteditable="false" style="HEIGHT: 80px; WIDTH: 80px"
-                            value=&amp;VetSetImage gxControl="Attribute"
-                            gxProp="GxWidth=80px;AttID=var:52;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>2</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=False;ControlName=VetSetImage2;GxHeight=80px" />
-                    </div>
-                </div>
-                <div id="Section17" class="total-box gray-box">
-                    <div class="content">
-                        <div class="text">
-                            <div id="Section15" class="bold">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Georgia'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="Font=Georgia, 12pt, style\x03DBold;ReadOnly=True;AttID=var:51;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>3</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=True;ControlName=VetSetNom3" />
-                            </div>
-                            <div id="Section16" class="red">&nbsp;
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
-                                    size="6" value=&amp;TotalSet3 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:18;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
-                            </div>
-                        </div>
-                        <input class="Image" contenteditable="false" style="HEIGHT: 80px; WIDTH: 80px"
-                            value=&amp;VetSetImage gxControl="Attribute"
-                            gxProp="GxWidth=80px;AttID=var:52;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>3</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=False;ControlName=VetSetImage3;GxHeight=80px" />
-                    </div>
-                </div>
+        <div id="Section14" class="total-box gray-box">
+          <div class="content">
+            <div class="text">
+              <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Georgia'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="Font=Georgia, 12pt, style\x03DBold;ReadOnly=True;AttID=var:51;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>2</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=True;ControlName=VetSetNom2" />
+              <div id="Section13" class="red">&nbsp; 
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal" size="3" value=&amp;VetTotalSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;ReadOnly=True;AttID=var:65;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>2</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetTotalSet2;ForeColor=Blue" />
+              </div>
             </div>
-            <div class="total-container">
-                <div id="Section20" class="total-box gray-box">
-                    <div class="content">
-                        <div class="text">
-                            <div id="Section18" class="bold">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Georgia'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="Font=Georgia, 12pt, style\x03DBold;ReadOnly=True;AttID=var:51;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>4</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=True;ControlName=VetSetNom4" />
-                            </div>
-                            <div id="Section19" class="red">&nbsp;
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
-                                    size="6" value=&amp;TotalSet4 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:21;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
-                            </div>
-                        </div>
-                        <input class="Image" contenteditable="false" style="HEIGHT: 80px; WIDTH: 80px"
-                            value=&amp;VetSetImage gxControl="Attribute"
-                            gxProp="GxWidth=80px;AttID=var:52;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>4</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=False;ControlName=VetSetImage4;GxHeight=80px" />
-                    </div>
-                </div>
-                <div id="Section23" class="total-box gray-box">
-                    <div class="content">
-                        <div class="text">
-                            <div id="Section21" class="bold">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Georgia'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="Font=Georgia, 12pt, style\x03DBold;ReadOnly=True;AttID=var:51;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>5</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=True;ControlName=VetSetNom5" />
-                            </div>
-                            <div id="Section22" class="red">&nbsp;
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
-                                    size="6" value=&amp;TotalSet5 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:24;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
-                            </div>
-                        </div>
-                        <input class="Image" contenteditable="false" style="HEIGHT: 80px; WIDTH: 80px"
-                            value=&amp;VetSetImage gxControl="Attribute"
-                            gxProp="GxWidth=80px;AttID=var:52;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>5</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=False;ControlName=VetSetImage5;GxHeight=80px" />
-                    </div>
-                </div>
-                <div id="Section26" class="total-box gray-box">
-                    <div class="content">
-                        <div class="text">
-                            <div id="Section24" class="bold">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Georgia'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="Font=Georgia, 12pt, style\x03DBold;ReadOnly=True;AttID=var:51;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>6</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=True;ControlName=VetSetNom6" />
-                            </div>
-                            <div id="Section25" class="red">&nbsp;
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal"
-                                    size="6" value=&amp;TotalSet6 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;AttID=var:26;ReadOnly=True;GxFormat=HTML;ForeColor=Blue" />
-                            </div>
-                        </div>
-                        <input class="Image" contenteditable="false" style="HEIGHT: 80px; WIDTH: 80px"
-                            value=&amp;VetSetImage gxControl="Attribute"
-                            gxProp="GxWidth=80px;AttID=var:52;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>6</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=False;ControlName=VetSetImage6;GxHeight=80px" />
-                    </div>
-                </div>
-            </div>
-            <h2>Total de Funcionarios Admitidos Por Cargo
-            </h2>
-            <div id="acolhidos" class="Container">
-                <table class="table" style="WIDTH: 600px" cellpadding="1" align="center"
-                    classref="d52f9833-90c9-4096-8e42-27485741f78a-619">
-                    <tbody>
-                        <tr>
-                            <td class="bold" style="HEIGHT: 37px" classref="d52f9833-90c9-4096-8e42-27485741f78a-1430">
-                                MASCULINO</td>
-                            <td class="blue"></td>
-                            <td class="bold" classref="d52f9833-90c9-4096-8e42-27485741f78a-1430">FEMININO</td>
-                            <td class="blue"></td>
-                        </tr>
-                        <tr>
-                            <td style="HEIGHT: 25px">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="GxObjClass=13;ControlName=VetSetNom7;AttID=var:51;Font=Verdana, 12pt, style\x03DBold" />
-                            </td>
-                            <td>
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;MascSet1 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:10;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                            <td>
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="GxObjClass=13;ControlName=VetSetNom13;AttID=var:51;Font=Verdana, 12pt, style\x03DBold" />
-                            </td>
-                            <td>
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;FemSet1 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:11;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="HEIGHT: 38px">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="GxObjClass=13;ControlName=VetSetNom8;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>2</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" />
-                            </td>
-                            <td class="blue">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;MascSet2 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                            <td>
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="GxObjClass=13;ControlName=VetSetNom14;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>2</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" />
-                            </td>
-                            <td class="blue">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;FemSet2 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:14;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="HEIGHT: 25px">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="GxObjClass=13;ControlName=VetSetNom9;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>3</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" />
-                            </td>
-                            <td class="blue">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;MascSet3 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:16;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                            <td>
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="GxObjClass=13;ControlName=VetSetNom15;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>3</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" />
-                            </td>
-                            <td class="blue">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;FemSet3 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:17;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="HEIGHT: 25px">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="GxObjClass=13;ControlName=VetSetNom10;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>4</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" />
-                            </td>
-                            <td class="blue">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;MascSet4 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:19;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                            <td>
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="GxObjClass=13;ControlName=VetSetNom16;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>4</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" />
-                            </td>
-                            <td class="blue">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;FemSet4 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:20;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="HEIGHT: 25px">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="GxObjClass=13;ControlName=VetSetNom11;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>5</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" />
-                            </td>
-                            <td>
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;MascSet5 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:22;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                            <td>
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="GxObjClass=13;ControlName=VetSetNom17;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>5</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" />
-                            </td>
-                            <td>
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;FemSet5 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:23;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="HEIGHT: 25px">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="GxObjClass=13;ControlName=VetSetNom12;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>6</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" />
-                            </td>
-                            <td>
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;MascSet6 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:27;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                            <td>
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal"
-                                    size="30" value=&amp;VetSetNom gxControl="Attribute"
-                                    gxProp="GxObjClass=13;ControlName=VetSetNom18;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>6</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" />
-                            </td>
-                            <td>
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;FemSet6 gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:25;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="bold">TOTAL:</td>
-                            <td class="blue">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;Masc gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:7;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                            <td class="bold">TOTAL:</td>
-                            <td class="blue">
-                                <input class="Attribute" contenteditable="false"
-                                    style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal"
-                                    size="6" value=&amp;Fem gxControl="Attribute"
-                                    gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:8;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <input class="Image" contenteditable="false" style="HEIGHT: 80px; WIDTH: 80px" value=&amp;VetSetImage gxControl="Attribute" gxProp="GxWidth=80px;AttID=var:52;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>2</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=False;ControlName=VetSetImage2;GxHeight=80px" />
+          </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
+        <div id="Section17" class="total-box gray-box">
+          <div class="content">
+            <div class="text">
+              <div id="Section15" class="bold">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Georgia'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="Font=Georgia, 12pt, style\x03DBold;ReadOnly=True;AttID=var:51;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>3</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=True;ControlName=VetSetNom3" />
+              </div>
+              <div id="Section16" class="red">&nbsp; 
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal" size="3" value=&amp;VetTotalSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;ReadOnly=True;AttID=var:65;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>3</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetTotalSet3;ForeColor=Blue" />
+              </div>
+            </div>
+            <input class="Image" contenteditable="false" style="HEIGHT: 80px; WIDTH: 80px" value=&amp;VetSetImage gxControl="Attribute" gxProp="GxWidth=80px;AttID=var:52;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>3</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=False;ControlName=VetSetImage3;GxHeight=80px" />
+          </div>
+        </div>
+      </div>
+      <div class="total-container">
+        <div id="Section20" class="total-box gray-box">
+          <div class="content">
+            <div class="text">
+              <div id="Section18" class="bold">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Georgia'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="Font=Georgia, 12pt, style\x03DBold;ReadOnly=True;AttID=var:51;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>4</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=True;ControlName=VetSetNom4" />
+              </div>
+              <div id="Section19" class="red">&nbsp; 
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal" size="3" value=&amp;VetTotalSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;ReadOnly=True;AttID=var:65;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>4</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetTotalSet4;ForeColor=Blue" />
+              </div>
+            </div>
+            <input class="Image" contenteditable="false" style="HEIGHT: 80px; WIDTH: 80px" value=&amp;VetSetImage gxControl="Attribute" gxProp="GxWidth=80px;AttID=var:52;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>4</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=False;ControlName=VetSetImage4;GxHeight=80px" />
+          </div>
+        </div>
+        <div id="Section23" class="total-box gray-box">
+          <div class="content">
+            <div class="text">
+              <div id="Section21" class="bold">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Georgia'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="Font=Georgia, 12pt, style\x03DBold;ReadOnly=True;AttID=var:51;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>5</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=True;ControlName=VetSetNom5" />
+              </div>
+              <div id="Section22" class="red">&nbsp; 
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal" size="3" value=&amp;VetTotalSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;ReadOnly=True;AttID=var:65;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>5</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetTotalSet5;ForeColor=Blue" />
+              </div>
+            </div>
+            <input class="Image" contenteditable="false" style="HEIGHT: 80px; WIDTH: 80px" value=&amp;VetSetImage gxControl="Attribute" gxProp="GxWidth=80px;AttID=var:52;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>5</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=False;ControlName=VetSetImage5;GxHeight=80px" />
+          </div>
+        </div>
+        <div id="Section26" class="total-box gray-box">
+          <div class="content">
+            <div class="text">
+              <div id="Section24" class="bold">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Georgia'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="Font=Georgia, 12pt, style\x03DBold;ReadOnly=True;AttID=var:51;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>6</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=True;ControlName=VetSetNom6" />
+              </div>
+              <div id="Section25" class="red">&nbsp; 
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 16.2pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #0000ff; FONT-STYLE: normal" size="3" value=&amp;VetTotalSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 16.2pt, style\x03DBold;ReadOnly=True;AttID=var:65;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>6</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetTotalSet6;ForeColor=Blue" />
+              </div>
+            </div>
+            <input class="Image" contenteditable="false" style="HEIGHT: 80px; WIDTH: 80px" value=&amp;VetSetImage gxControl="Attribute" gxProp="GxWidth=80px;AttID=var:52;GxObjClass=13;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>6</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;AutoResize=False;ControlName=VetSetImage6;GxHeight=80px" />
+          </div>
+        </div>
+      </div>
+      <h2>Total de Funcionarios Admitidos Por Cargo 
+      </h2>
+      <div id="acolhidos" class="Container">
+        <table class="table" style="WIDTH: 600px" cellpadding="1" align="center" classref="d52f9833-90c9-4096-8e42-27485741f78a-619">
+          <tbody>
+            <tr>
+              <td class="bold" style="HEIGHT: 37px" classref="d52f9833-90c9-4096-8e42-27485741f78a-1430">MASCULINO</td>
+              <td class="blue"></td>
+              <td class="bold" classref="d52f9833-90c9-4096-8e42-27485741f78a-1430">FEMININO</td>
+              <td class="blue"></td>
+            </tr>
+            <tr>
+              <td style="HEIGHT: 25px">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="GxObjClass=13;ControlName=VetSetNom7;AttID=var:51;Font=Verdana, 12pt, style\x03DBold" /></td>
+              <td>
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="3" value=&amp;VetMascSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:63;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ControlName=VetMascSet1;ForeColor=Red" /></td>
+              <td>
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="GxObjClass=13;ControlName=VetSetNom13;AttID=var:51;Font=Verdana, 12pt, style\x03DBold" /></td>
+              <td>
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="3" value=&amp;VetFemSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:64;GxObjClass=13;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ControlName=VetFemSet1;ForeColor=Red" /></td>
+            </tr>
+            <tr>
+              <td style="HEIGHT: 38px">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="GxObjClass=13;ControlName=VetSetNom8;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>2</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" /></td>
+              <td class="blue">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="3" value=&amp;VetMascSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;ReadOnly=True;AttID=var:63;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>2</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetMascSet2;ForeColor=Red" /></td>
+              <td>
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="GxObjClass=13;ControlName=VetSetNom14;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>2</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" /></td>
+              <td class="blue">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="3" value=&amp;VetFemSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;ReadOnly=True;AttID=var:64;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>2</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetFemSet2;ForeColor=Red" /></td>
+            </tr>
+            <tr>
+              <td style="HEIGHT: 25px">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="GxObjClass=13;ControlName=VetSetNom9;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>3</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" /></td>
+              <td class="blue">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="3" value=&amp;VetMascSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;ReadOnly=True;AttID=var:63;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>3</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetMascSet3;ForeColor=Red" /></td>
+              <td>
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="GxObjClass=13;ControlName=VetSetNom15;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>3</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" /></td>
+              <td class="blue">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="3" value=&amp;VetFemSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;ReadOnly=True;AttID=var:64;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>3</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetFemSet3;ForeColor=Red" /></td>
+            </tr>
+            <tr>
+              <td style="HEIGHT: 25px">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="GxObjClass=13;ControlName=VetSetNom10;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>4</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" /></td>
+              <td class="blue">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="3" value=&amp;VetMascSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;ReadOnly=True;AttID=var:63;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>4</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetMascSet4;ForeColor=Red" /></td>
+              <td>
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="GxObjClass=13;ControlName=VetSetNom16;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>4</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" /></td>
+              <td class="blue">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="3" value=&amp;VetFemSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;ReadOnly=True;AttID=var:64;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>4</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetFemSet4;ForeColor=Red" /></td>
+            </tr>
+            <tr>
+              <td style="HEIGHT: 25px">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="GxObjClass=13;ControlName=VetSetNom11;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>5</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" /></td>
+              <td>
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="3" value=&amp;VetMascSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;ReadOnly=True;AttID=var:63;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>5</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetMascSet5;ForeColor=Red" /></td>
+              <td>
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="GxObjClass=13;ControlName=VetSetNom17;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>5</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" /></td>
+              <td>
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="3" value=&amp;VetFemSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;ReadOnly=True;AttID=var:64;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>5</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetFemSet5;ForeColor=Red" /></td>
+            </tr>
+            <tr>
+              <td style="HEIGHT: 25px">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="GxObjClass=13;ControlName=VetSetNom12;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>6</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" /></td>
+              <td>
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="3" value=&amp;VetMascSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;ReadOnly=True;AttID=var:63;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>6</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetMascSet6;ForeColor=Red" /></td>
+              <td>
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 12pt; TEXT-DECORATION: none; FONT-FAMILY: 'Verdana'; FONT-WEIGHT: bold; FONT-STYLE: normal" size="30" value=&amp;VetSetNom gxControl="Attribute" gxProp="GxObjClass=13;ControlName=VetSetNom18;AttID=var:51;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>6</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;Font=Verdana, 12pt, style\x03DBold" /></td>
+              <td>
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="3" value=&amp;VetFemSet gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;ReadOnly=True;AttID=var:64;GxObjClass=13;HorizontalAlignment=center;RowIndex=<TokenDataList><TokenData><Token>3</Token><Word>6</Word><Id>0</Id></TokenData><TokenData><Token>25</Token><Word>\x010\x013</Word><Id>0</Id></TokenData></TokenDataList>;GxFormat=HTML;ControlName=VetFemSet6;ForeColor=Red" /></td>
+            </tr>
+            <tr>
+              <td class="bold">TOTAL:</td>
+              <td class="blue">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="6" value=&amp;Masc gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:7;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" /></td>
+              <td class="bold">TOTAL:</td>
+              <td class="blue">
+                <input class="Attribute" contenteditable="false" style="FONT-SIZE: 13.8pt; TEXT-DECORATION: none; FONT-FAMILY: 'Trebuchet MS'; FONT-WEIGHT: bold; COLOR: #ff0000; FONT-STYLE: normal" size="6" value=&amp;Fem gxControl="Attribute" gxProp="Font=Trebuchet MS, 13.8pt, style\x03DBold;AttID=var:8;HorizontalAlignment=center;ReadOnly=True;GxFormat=HTML;ForeColor=Red" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+
 
 
             window.onload = function () {
                 let fem = document.getElementById('span_vFEM')?.innerText.trim() || "0";
                 let masc = document.getElementById('span_vMASC')?.innerText.trim() || "0";
-                let adm = document.getElementById('span_vTOTALSET1')?.innerText.trim() || "0";
-                let saude = document.getElementById('span_vTOTALSET2')?.innerText.trim() || "0";
-                let nutricao = document.getElementById('span_vTOTALSET3')?.innerText.trim() || "0";
-                let apoio = document.getElementById('span_vTOTALSET4')?.innerText.trim() || "0";
-                let zeladoria = document.getElementById('span_vTOTALSET5')?.innerText.trim() || "0";
-                let promocao = document.getElementById('span_vTOTALSET6')?.innerText.trim() || "0";
+                let adm = document.getElementById('span_VETTOTALSET1')?.innerText.trim() || "0";
+                let saude = document.getElementById('span_VETTOTALSET2')?.innerText.trim() || "0";
+                let nutricao = document.getElementById('span_VETTOTALSET3')?.innerText.trim() || "0";
+                let apoio = document.getElementById('span_VETTOTALSET4')?.innerText.trim() || "0";
+                let zeladoria = document.getElementById('span_VETTOTALSET5')?.innerText.trim() || "0";
+                let promocao = document.getElementById('span_VETTOTALSET6')?.innerText.trim() || "0";
 
                 let admtext = document.getElementById('span_VETSETNOM1')?.innerText.trim()
                 let saudetext = document.getElementById('span_VETSETNOM2')?.innerText.trim()
@@ -573,5 +338,5 @@
                 });
             };
 
-
-        </script>
+        
+</script>
