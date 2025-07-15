@@ -617,6 +617,8 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
             window.onload = function () {
+
+                // --- SEÇÃO 1: LÓGICA DO GRÁFICO (sem alterações) ---
                 let adm = document.getElementById('span_VETTOTALSET1')?.innerText.trim() || "0";
                 let saude = document.getElementById('span_VETTOTALSET2')?.innerText.trim() || "0";
                 let nutricao = document.getElementById('span_VETTOTALSET3')?.innerText.trim() || "0";
@@ -655,66 +657,67 @@
                     { label: equipetecnicatext, value: equipetecnica, color: '#6f42c1', borderColor: '#4e0b8a' },
                 ];
 
-                // ---- INÍCIO DA DEPURAÇÃO ----
-                console.log("Dados de TODOS os setores (antes de filtrar):", setores);
-                // ---- FIM DA DEPURAÇÃO ----
-
                 let setoresValidos = setores.filter(setor => setor.label && setor.value > 0);
-
-                // ---- INÍCIO DA DEPURAÇÃO ----
-                console.log("Dados VÁLIDOS para o gráfico (depois de filtrar):", setoresValidos);
-                // ---- FIM DA DEPURAÇÃO ----
-
-                // ✅ MELHORIA: Filtra para remover setores sem nome (label) ou com valor 0
-                //let setoresValidos = setores.filter(setor => setor.label && setor.value > 0);
-
-                // Ordena a lista JÁ FILTRADA do maior para o menor
                 setoresValidos.sort((a, b) => b.value - a.value);
 
-                // Usa a lista filtrada e ordenada para criar os dados do gráfico
                 let labelsOrdenados = setoresValidos.map(s => s.label);
                 let valoresOrdenados = setoresValidos.map(s => s.value);
                 let coresOrdenadas = setoresValidos.map(s => s.color);
                 let bordasOrdenadas = setoresValidos.map(s => s.borderColor);
 
                 let canvas = document.getElementById('barChart');
-                if (!canvas) {
-                    console.error("Erro: Canvas 'barChart' não encontrado!");
-                    return;
-                }
-
-                // Evita erro se não houver dados para exibir
-                if (valoresOrdenados.length === 0) {
-                    console.warn("Nenhum dado válido para exibir no gráfico.");
-                    return;
-                }
-
-                let ctx = canvas.getContext('2d');
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: labelsOrdenados,
-                        datasets: [{
-                            label: 'Total de Funcionários',
-                            data: valoresOrdenados,
-                            backgroundColor: coresOrdenadas,
-                            borderColor: bordasOrdenadas,
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: { position: 'top' },
-                            tooltip: {
-                                callbacks: {
-                                    label: function (tooltipItem) {
-                                        return tooltipItem.label + ': ' + tooltipItem.raw;
+                if (canvas && valoresOrdenados.length > 0) {
+                    let ctx = canvas.getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labelsOrdenados,
+                            datasets: [{
+                                label: 'Total de Funcionários',
+                                data: valoresOrdenados,
+                                backgroundColor: coresOrdenadas,
+                                borderColor: bordasOrdenadas,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: { position: 'top' },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (tooltipItem) {
+                                            return tooltipItem.label + ': ' + tooltipItem.raw;
+                                        }
                                     }
                                 }
                             }
                         }
+                    });
+                }
+
+
+                // --- SEÇÃO 2: LÓGICA PARA ESCONDER A LINHA DA TABELA (VERSÃO CORRIGIDA) ---
+
+                // 1. Encontrar o SPAN que contém o valor.
+                const spanDoValor = document.getElementById('span_VETMASCSET6');
+
+                // 2. Encontrar a CÉLULA da linha a esconder com o ID CORRETO (LINETABLE em maiúsculo).
+                const celulaParaEsconder = document.getElementById('LINETABLE66');
+
+                // 3. Checar se os dois elementos foram encontrados.
+                if (spanDoValor && celulaParaEsconder) {
+                    // 4. Ler o TEXTO do SPAN e converter para número.
+                    const valorNumerico = parseInt(spanDoValor.innerText, 10) || 0;
+
+                    // 5. Se o valor for 0...
+                    if (valorNumerico === 0) {
+                        // 6. Encontrar a linha (TR) "pai" da célula e escondê-la.
+                        const linhaParaEsconder = celulaParaEsconder.parentElement;
+                        if (linhaParaEsconder) {
+                            linhaParaEsconder.style.display = 'none';
+                        }
                     }
-                });
+                }
             };
         </script>
