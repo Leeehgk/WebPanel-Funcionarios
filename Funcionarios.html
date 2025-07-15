@@ -699,20 +699,22 @@
 
                 // --- SEÇÃO 2: LÓGICA PARA ESCONDER A LINHA DA TABELA (VERSÃO CORRIGIDA) ---
 
-                // 1. Encontrar o SPAN que contém o valor.
-                const spanDoValor = document.getElementById('span_VETMASCSET6');
-
-                // 2. Encontrar a CÉLULA da linha a esconder com o ID CORRETO (LINETABLE em maiúsculo).
+                // 1. Encontrar os três elementos necessários na página.
+                const spanValorVetMascSet6 = document.getElementById('span_VETMASCSET6');
+                const spanValorVetFemSet6 = document.getElementById('span_VETFEMSET6');
                 const celulaParaEsconder = document.getElementById('LINETABLE66');
 
-                // 3. Checar se os dois elementos foram encontrados.
-                if (spanDoValor && celulaParaEsconder) {
-                    // 4. Ler o TEXTO do SPAN e converter para número.
-                    const valorNumerico = parseInt(spanDoValor.innerText, 10) || 0;
+                // 2. Checar se TODOS os três elementos foram encontrados.
+                if (spanValorVetMascSet6 && spanValorVetFemSet6 && celulaParaEsconder) {
 
-                    // 5. Se o valor for 0...
-                    if (valorNumerico === 0) {
-                        // 6. Encontrar a linha (TR) "pai" da célula e escondê-la.
+                    // 3. Ler e converter os valores de AMBOS os spans.
+                    const valorMasc = parseInt(spanValorVetMascSet6.innerText, 10) || 0;
+                    const valorFem = parseInt(spanValorVetFemSet6.innerText, 10) || 0; // <-- ADICIONADO
+
+                    // 4. CONDIÇÃO ATUALIZADA: Se o valor masculino E o valor feminino forem 0...
+                    if (valorMasc === 0 && valorFem === 0) {
+
+                        // 5. Encontrar a linha (TR) "pai" da célula e escondê-la.
                         const linhaParaEsconder = celulaParaEsconder.parentElement;
                         if (linhaParaEsconder) {
                             linhaParaEsconder.style.display = 'none';
