@@ -696,30 +696,67 @@
                     });
                 }
 
+                // =====================================================================
+                // INÍCIO: SEÇÃO 2 ATUALIZADA E REUTILIZÁVEL
+                // =====================================================================
 
-                // --- SEÇÃO 2: LÓGICA PARA ESCONDER A LINHA DA TABELA (VERSÃO CORRIGIDA) ---
+                // 1. PRIMEIRO, CRIAMOS A NOSSA FUNÇÃO "FERRAMENTA"
+                // Esta função inteligente só precisa dos IDs dos spans de valor para
+                // encontrar e esconder a linha inteira correspondente.
+                function verificarEesconderLinha(idSpanMasc, idSpanFem) {
 
-                // 1. Encontrar os três elementos necessários na página.
-                const spanValorVetMascSet6 = document.getElementById('span_VETMASCSET6');
-                const spanValorVetFemSet6 = document.getElementById('span_VETFEMSET6');
-                const celulaParaEsconder = document.getElementById('LINETABLE66');
+                    // Procura os spans de valor masculino e feminino na página.
+                    const spanMasc = document.getElementById(idSpanMasc);
+                    const spanFem = document.getElementById(idSpanFem);
 
-                // 2. Checar se TODOS os três elementos foram encontrados.
-                if (spanValorVetMascSet6 && spanValorVetFemSet6 && celulaParaEsconder) {
+                    // A lógica só continua se AMBOS os spans de valor forem encontrados.
+                    if (spanMasc && spanFem) {
 
-                    // 3. Ler e converter os valores de AMBOS os spans.
-                    const valorMasc = parseInt(spanValorVetMascSet6.innerText, 10) || 0;
-                    const valorFem = parseInt(spanValorVetFemSet6.innerText, 10) || 0; // <-- ADICIONADO
+                        // Lê os valores de masculino e feminino.
+                        const valorMasc = parseInt(spanMasc.innerText, 10) || 0;
+                        const valorFem = parseInt(spanFem.innerText, 10) || 0;
 
-                    // 4. CONDIÇÃO ATUALIZADA: Se o valor masculino E o valor feminino forem 0...
-                    if (valorMasc === 0 && valorFem === 0) {
+                        // Se AMBOS os valores forem zero...
+                        if (valorMasc === 0 && valorFem === 0) {
 
-                        // 5. Encontrar a linha (TR) "pai" da célula e escondê-la.
-                        const linhaParaEsconder = celulaParaEsconder.parentElement;
-                        if (linhaParaEsconder) {
-                            linhaParaEsconder.style.display = 'none';
+                            // Acha a linha (TR) "pai" a partir de um dos spans e a esconde.
+                            // O comando .closest('tr') é um atalho para encontrar a linha da tabela.
+                            const linhaParaEsconder = spanMasc.closest('tr');
+                            if (linhaParaEsconder) {
+                                linhaParaEsconder.style.display = 'none';
+                            }
                         }
                     }
                 }
+
+                // 2. AGORA, USAMOS A NOSSA "FERRAMENTA" PARA CADA LINHA QUE QUEREMOS VERIFICAR
+
+                // Para a linha do cargo 1
+                verificarEesconderLinha('span_VETMASCSET1', 'span_VETFEMSET1');
+
+                // Para a linha do cargo 2
+                verificarEesconderLinha('span_VETMASCSET2', 'span_VETFEMSET2');
+
+                // Para a linha do cargo 3
+                verificarEesconderLinha('span_VETMASCSET3', 'span_VETFEMSET3');
+
+                // Para a linha do cargo 4
+                verificarEesconderLinha('span_VETMASCSET4', 'span_VETFEMSET4');
+
+                // Para a linha do cargo 5
+                verificarEesconderLinha('span_VETMASCSET5', 'span_VETFEMSET5');
+
+                // Para a linha do cargo 6
+                verificarEesconderLinha('span_VETMASCSET6', 'span_VETFEMSET6');
+
+                // Para a linha do cargo 7
+                verificarEesconderLinha('span_VETMASCSET7', 'span_VETFEMSET7');
+
+                // Para a linha do cargo 8
+                verificarEesconderLinha('span_VETMASCSET8', 'span_VETFEMSET8');
+
+                // =====================================================================
+                // FIM do código
+                // =====================================================================
             };
         </script>
